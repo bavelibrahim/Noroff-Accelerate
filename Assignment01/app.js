@@ -76,18 +76,11 @@ function bank(){
 
     if (outstandingValueBoolean == true){
         
-        console.log(GrayGandalf.Balance)
-
         addToOutLoan = GrayGandalf.SalaryBalance / 10
         addToBank    = GrayGandalf.SalaryBalance - addToOutLoan
         
-        console.log(addToBank)
-        console.log(GrayGandalf.Balance)
-        
         GrayGandalf.Balance = GrayGandalf.Balance + addToBank
         GrayGandalf.outLoan = GrayGandalf.outLoan + addToOutLoan
-
-        console.log(GrayGandalf.Balance)
 
         document.getElementById('text-Balance').innerHTML = "Balance:   " + GrayGandalf.Balance
         document.getElementById('text-outstanding-loan').innerHTML = "Loan: " + GrayGandalf.outLoan
