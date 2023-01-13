@@ -22,8 +22,7 @@
 
 .btn-template {
     display: table-cell;
-    position: absolute;
-    transform: translateY(-60%);
+    transform: translateY(-10%);
     width: 70%;
     height: 30px;
     box-shadow: 0.5cm;
