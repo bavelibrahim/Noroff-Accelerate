@@ -5,6 +5,7 @@
   }
 
 .boxTemplate {
+    position: relative;
     display: table;
     text-align: center;
     background-color: white;
@@ -19,8 +20,10 @@
     padding: 15px;
 }
 
-#btn-getLoan {
+.btn-template {
     display: table-cell;
+    position: absolute;
+    transform: translateY(-60%);
     width: 70%;
     height: 30px;
     box-shadow: 0.5cm;
@@ -29,10 +32,10 @@
     border: 3px;
     color: black;   
     border-radius: 6px;
-    vertical-align: bottom;
+    bottom: 0;
 }
 
-#btn-getLoan::after {
+.btn-template::after {
     width: 70%;
     height: 30px;
     box-shadow: 0.5cm;
@@ -43,9 +46,9 @@
     border-radius: 6px;
 }
 
-#btn-getLoan:hover {background-color:goldenrod}
+.btn-template:hover {background-color:goldenrod}
 
-#btn-getLoan:active {
+.btn-template:active {
     width: 70%;
     height: 35px;
     box-shadow: 0.5cm;
