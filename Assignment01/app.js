@@ -110,7 +110,7 @@ function getLoan(){
 function payLoan () {
 
     if (GrayGandalf.SalaryBalance < GrayGandalf.outLoan){
-        alert("Why is that you're broke all the time? Work some more, then pay back the loan..")
+        alert("Why is it that you're broke all the time? Work some more, then pay back the loan..")
         return
     }
 
