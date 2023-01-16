@@ -1,12 +1,4 @@
-
 var computers_btn_list = document.getElementById("computers")
-const btn_payLoan = document.querySelector('btn-payLoan')
-const btn_doWork = document.querySelector('btn-doWork')
-const btn_bank = document.querySelector('btn-bank')
-const btn_getLoan = document.querySelector('btn-getLoan')
-const balance_per = document.querySelector('text-per-balance')
-const balance_bank = document.querySelector('text-Balance')
-
 
 // Loading elements when window is loaded....
 window.onload = function(){
@@ -19,25 +11,23 @@ window.onload = function(){
     document.getElementById('btn-doWork').addEventListener("click", work)
     document.getElementById('btn-bank').addEventListener("click", bank)
     document.getElementById('btn-payLoan').addEventListener("click", payLoan)
-
-    btn_payLoan.addEventListener('click', payLoan)
-    btn_doWork.addEventListener('click', work)
-    btn_bank.addEventListener('click', bank)
-    btn_getLoan.addEventListener('click', getLoan)
+    document.getElementById('btn-payLoan').style.visibility = "hidden"
 
     //! CHANGEABLE TEXT ELEMENTS
-    balance_per.innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
-    balance_bank.innerHTML = "Balance:   " + GrayGandalf.Balance
+    document.getElementById('text-per-balance').innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
+    document.getElementById('text-Balance').innerHTML = "Balance:   " + GrayGandalf.Balance
 }
-// ? GLOBAL VARIABLES
 
+// ? GLOBAL VARIABLES
 let gotLoan = false
 let outstandingValueBoolean = false
-
+payLoan.disableButton = false
 // ???????????????
 
-const disableButton = () => {
-    console.log("Disable Button")    
+//! Function for disabling a button
+const disableButton = (button) => {
+    console.log("va");
+      button.disabled = true;
 }
 
 // A template for creating a bank user. 
@@ -59,15 +49,7 @@ let GrayGandalf = new bankUser(
     100,
     0,
     0
-)
-
-function onChange() {
-    var value = computers_btn_list.value
-    var text = computers_btn_list.text
-    console.log(value,text)
-}
-computers_btn_list.onchange = onChange()
-onChange()
+)   
 
 //! getLoan function checks for the requirements provided by the assignment document
 function getLoan(){
@@ -92,6 +74,7 @@ function getLoan(){
     }
 
     else if (gotLoan == false){
+        payLoan.disableButton = false
         GrayGandalf.outLoan += amount
         document.getElementById('text-outstanding-loan')
         .innerHTML = "Loan: " + GrayGandalf.outLoan
@@ -103,6 +86,8 @@ function getLoan(){
         GrayGandalf.Balance = GrayGandalf.Balance + amount
         document.getElementById('text-Balance')
         .innerHTML = "Balance: " + GrayGandalf.Balance
+
+        document.getElementById('btn-payLoan').style.visibility = "visible"
     }
 }
 
@@ -124,8 +109,8 @@ function payLoan () {
         document.getElementById('text-per-balance')
         .innerHTML = "Balance: " + GrayGandalf.SalaryBalance
         alert("Your loan has been paid back")
+        document.getElementById('btn-payLoan').style.visibility = "hidden"
     }
-
 }
 
 //! Banking the salary
@@ -152,15 +137,9 @@ function bank(){
     document.getElementById('text-per-balance').innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
 }
 
-
 //! the function Work adds a certain amount of money (100) to the users personal balance before adding it to the bank
 function work(){
     GrayGandalf.SalaryBalance += 100
     document.getElementById('text-per-balance')
     .innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
-}
-
-function checkLoanRepaid(Amount){
-    if (Amount == 0)
-        gotLoan = false       
 }
