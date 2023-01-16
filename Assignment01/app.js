@@ -1,9 +1,44 @@
+
+var computers_btn_list = document.getElementById("computers")
+const btn_payLoan = document.querySelector('btn-payLoan')
+const btn_doWork = document.querySelector('btn-doWork')
+const btn_bank = document.querySelector('btn-bank')
+const btn_getLoan = document.querySelector('btn-getLoan')
+const balance_per = document.querySelector('text-per-balance')
+const balance_bank = document.querySelector('text-Balance')
+
+
+// Loading elements when window is loaded....
+window.onload = function(){
+
+    //! FIXED TEXT ELEMENTSS
+    document.getElementById('Gandalf').innerHTML = GrayGandalf.Name + " " + GrayGandalf.Surname
+
+    //! BUTTONS
+    document.getElementById('btn-getLoan').addEventListener("click", getLoan)
+    document.getElementById('btn-doWork').addEventListener("click", work)
+    document.getElementById('btn-bank').addEventListener("click", bank)
+    document.getElementById('btn-payLoan').addEventListener("click", payLoan)
+
+    btn_payLoan.addEventListener('click', payLoan)
+    btn_doWork.addEventListener('click', work)
+    btn_bank.addEventListener('click', bank)
+    btn_getLoan.addEventListener('click', getLoan)
+
+    //! CHANGEABLE TEXT ELEMENTS
+    balance_per.innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
+    balance_bank.innerHTML = "Balance:   " + GrayGandalf.Balance
+}
 // ? GLOBAL VARIABLES
 
 let gotLoan = false
 let outstandingValueBoolean = false
 
 // ???????????????
+
+const disableButton = () => {
+    console.log("Disable Button")    
+}
 
 // A template for creating a bank user. 
 function bankUser(Name, Surname, Balance, Salary, SalaryBalance, outLoan){
@@ -20,31 +55,30 @@ function bankUser(Name, Surname, Balance, Salary, SalaryBalance, outLoan){
 let GrayGandalf = new bankUser(
     "Gandalf",
     "The Brown",
-    300,
+    0,
     100,
     0,
     0
 )
 
-// Loading elements when window is loaded....
-window.onload = function(){
-
-    //! FIXED TEXT ELEMENTSS
-    document.getElementById('Gandalf').innerHTML = GrayGandalf.Name + " " + GrayGandalf.Surname
-
-    //! BUTTONS
-    document.getElementById('btn-getLoan').addEventListener("click", getLoan)
-    document.getElementById('btn-doWork').addEventListener("click", work)
-    document.getElementById('btn-bank').addEventListener("click", bank)
-
-    //! CHANGEABLE TEXT ELEMENTS
-    document.getElementById('text-per-balance').innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
-    document.getElementById('text-Balance').innerHTML = "Balance:   " + GrayGandalf.Balance
+function onChange() {
+    var value = computers_btn_list.value
+    var text = computers_btn_list.text
+    console.log(value,text)
 }
+computers_btn_list.onchange = onChange()
+onChange()
 
-// getLoan function checks for the requirements provided by the assignment document
+//! getLoan function checks for the requirements provided by the assignment document
 function getLoan(){
     
+    console.log("Your Balance is: " + GrayGandalf.Balance)
+
+    if (GrayGandalf.Balance == 0){
+        alert("You lazy ass, go do some work... you're broke")
+        return
+    }
+
     //? Prompt popping up when asking for an amount for the Loan
     amount = Number(window.prompt("Type the amount for the Loan"))
 
@@ -72,6 +106,29 @@ function getLoan(){
     }
 }
 
+//! Paying back the loan
+function payLoan () {
+
+    if (GrayGandalf.SalaryBalance < GrayGandalf.outLoan){
+        alert("Why is that you're broke all the time? Work some more, then pay back the loan..")
+        return
+    }
+
+    else {
+        outstandingValueBoolean = false
+        gotLoan = false
+        GrayGandalf.SalaryBalance -= GrayGandalf.outLoan
+        GrayGandalf.outLoan = 0
+        document.getElementById('text-outstanding-loan')
+        .innerHTML = "Loan: " + GrayGandalf.outLoan
+        document.getElementById('text-per-balance')
+        .innerHTML = "Balance: " + GrayGandalf.SalaryBalance
+        alert("Your loan has been paid back")
+    }
+
+}
+
+//! Banking the salary
 function bank(){
 
     if (outstandingValueBoolean == true){
@@ -95,7 +152,8 @@ function bank(){
     document.getElementById('text-per-balance').innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
 }
 
-// the function Work adds a certain amount of money to the users personal balane before adding it to the bank
+
+//! the function Work adds a certain amount of money (100) to the users personal balance before adding it to the bank
 function work(){
     GrayGandalf.SalaryBalance += 100
     document.getElementById('text-per-balance')
