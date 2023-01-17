@@ -3,6 +3,7 @@ const specs_list = document.getElementById("specs-list")
 pc_description = document.getElementById("text-pc-paragraph")
 pc_title       = document.getElementById("text-pc-title")
 pc_price       = document.getElementById("text-pc-price")
+pc_image       = document.getElementById("pc-img")
 
 let laptops = []
 let specs = []
@@ -46,7 +47,6 @@ const addLaptops = (laptops) => {
     pc_description.innerHTML = laptops[0].description
     pc_price.innerHTML       = laptops[0].price
 
-
 }
 
 const addLaptop = (laptop) => {
@@ -75,9 +75,15 @@ const laptopChange = x => {
     console.log(computer.title)
     console.log(computer.description)
 
+    console.log(computer.id)
+    console.log(computer.image)
+
+    pc_image.src = "https://hickory-quilled-actress.glitch.me/" + computer.image
+    
     pc_title.innerHTML       = computer.title
     pc_description.innerHTML = computer.description
     pc_price.innerHTML       = computer.price
+
 
 };
 
