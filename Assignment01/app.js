@@ -47,7 +47,7 @@ const addLaptops = (laptops) => {
 
     pc_title.innerHTML       = laptops[0].title
     pc_description.innerHTML = laptops[0].description
-    pc_price.innerHTML       = "Price: " + laptops[0].price
+    pc_price.innerHTML       = laptops[0].price
 
 }
 
@@ -81,7 +81,7 @@ const laptopChange = x => {
     
     pc_title.innerHTML       = computer.title
     pc_description.innerHTML = computer.description
-    pc_price.innerHTML       = "Price: " + computer.price
+    pc_price.innerHTML       = computer.price
 
 };
 
@@ -205,12 +205,13 @@ function work(){
 function payPC(){
 
     if (pc_price.innerHTML > GrayGandalf.Balance){
-        alert("You do not have enough money in the bank to pay for this PC, please obtain some more money")
+        alert("You do not have enough money in the bank to pay for this PC, please obtain some more money. This pc costs: " + pc_price.innerHTML)
         return;
     }
-    else
+    else {
         alert("Congratulations, you're now an owner of a new: " + pc_title.innerHTML)
         GrayGandalf.Balance -= pc_price.innerHTML
         document.getElementById('text-Balance')
-        .innerHTML = "Balance:   " + GrayGandalf.Balance
+        .innerHTML = "Balance:   " + GrayGandalf.Balance;
+    }
 }
