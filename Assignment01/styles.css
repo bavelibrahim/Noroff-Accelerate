@@ -5,7 +5,7 @@
   }
 
 .container2 {
-    width: 810px;
+    width: 1010px;
     height: 300px;
     display: flex;
     padding: 15px;
@@ -27,17 +27,34 @@
     position: relative;
     display: table;
     text-align: center;
-    padding: 5%;
     background-color: white;
-    width: 100%;
+    width: 20%;
     height: 250px;
     border-color: white;
-    box-shadow: rgba(99, 99, 99, 0.2) 2px 2px 8px 2px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 2px 2px 8px 2px; */
+    border-radius: 10px;
+}
+
+/*** SPECIFICALLY FOR THE COLUMN IN THE MIDDLE OF THE INFO SECTION ***/
+.boxTemplate3 {
+    position: relative;
+    display: table;
+    text-align: center;
+    background-color: white;
+    width: 60%;
+    height: 250px;
+    border-color: white;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 2px 2px 8px 2px; */
     border-radius: 10px;
 }
 
 .col {
-    padding: 15px;
+    padding: 10px;
+}
+
+.btn-template {
+    align-items: center;
+    align-content: center;
 }
 
 .btn-template {
@@ -78,3 +95,4 @@
     color: black;   
     border-radius: 6px;
 }
+

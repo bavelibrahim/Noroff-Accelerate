@@ -1,5 +1,8 @@
 const select_computers = document.getElementById("laptops")
 const specs_list = document.getElementById("specs-list")
+pc_description = document.getElementById("text-pc-paragraph")
+pc_title       = document.getElementById("text-pc-title")
+pc_price       = document.getElementById("text-pc-price")
 
 let laptops = []
 let specs = []
@@ -38,6 +41,12 @@ const addLaptops = (laptops) => {
         newElement.appendChild(newContent)
         document.querySelector("#specs-list").appendChild(newElement)
     })
+
+    pc_title.innerHTML       = laptops[0].title
+    pc_description.innerHTML = laptops[0].description
+    pc_price.innerHTML       = laptops[0].price
+
+
 }
 
 const addLaptop = (laptop) => {
@@ -53,7 +62,7 @@ const addLaptop = (laptop) => {
 
 const laptopChange = x => {
     const computer = laptops[x.target.selectedIndex]
-
+    
     document.querySelector('#specs-list').innerHTML = ""
 
     computer.specs.forEach(function (item) {
@@ -63,7 +72,14 @@ const laptopChange = x => {
         document.querySelector("#specs-list").appendChild(newElement)
     })
 
-}
+    console.log(computer.title)
+    console.log(computer.description)
+
+    pc_title.innerHTML       = computer.title
+    pc_description.innerHTML = computer.description
+    pc_price.innerHTML       = computer.price
+
+};
 
 // ? GLOBAL VARIABLES
 let gotLoan = false
