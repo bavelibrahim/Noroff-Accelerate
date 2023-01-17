@@ -1,8 +1,13 @@
-var computers_btn_list = document.getElementById("computers")
+const select_computers = document.getElementById("laptops")
+const specs_list = document.getElementById("specs-list")
+
+let laptops = []
+let specs = []
 
 // Loading elements when window is loaded....
 window.onload = function(){
 
+    document.getElementById('laptops').addEventListener("change", laptopChange)
     //! FIXED TEXT ELEMENTSS
     document.getElementById('Gandalf').innerHTML = GrayGandalf.Name + " " + GrayGandalf.Surname
 
@@ -16,6 +21,48 @@ window.onload = function(){
     //! CHANGEABLE TEXT ELEMENTS
     document.getElementById('text-per-balance').innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
     document.getElementById('text-Balance').innerHTML = "Balance:   " + GrayGandalf.Balance
+}
+
+fetch("https://hickory-quilled-actress.glitch.me/computers")
+    .then(response => response.json())
+    .then(data => laptops = data)
+    .then(laptops => addLaptops(laptops))
+
+
+const addLaptops = (laptops) => {
+    laptops.forEach(i => addLaptop(i))
+
+    laptops[0].specs.forEach(function (item) {
+        let newElement = document.createElement("li")
+        let newContent = document.createTextNode(item)
+        newElement.appendChild(newContent)
+        document.querySelector("#specs-list").appendChild(newElement)
+    })
+}
+
+const addLaptop = (laptop) => {
+    //! ---------------
+    const computers = document.createElement("option")
+    //! ---------------
+    computers.value = laptop.id
+    //! ---------------
+    computers.appendChild(document.createTextNode(laptop.title))
+    //! ---------------
+    select_computers.appendChild(computers)
+}
+
+const laptopChange = x => {
+    const computer = laptops[x.target.selectedIndex]
+
+    document.querySelector('#specs-list').innerHTML = ""
+
+    computer.specs.forEach(function (item) {
+        let newElement = document.createElement("li")
+        let newContent = document.createTextNode(item)
+        newElement.appendChild(newContent)
+        document.querySelector("#specs-list").appendChild(newElement)
+    })
+
 }
 
 // ? GLOBAL VARIABLES
@@ -143,3 +190,4 @@ function work(){
     document.getElementById('text-per-balance')
     .innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
 }
+
