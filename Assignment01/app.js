@@ -5,10 +5,11 @@ pc_title       = document.getElementById("text-pc-title")
 pc_price       = document.getElementById("text-pc-price")
 pc_image       = document.getElementById("pc-img")
 
+//! Two arrays, one for laptops in the catalog, the other for the list of specs of each laptop
 let laptops = []
 let specs = []
 
-// Loading elements when window is loaded....
+//! Loading elements when window is loaded....
 window.onload = function(){
 
     document.getElementById('laptops').addEventListener("change", laptopChange)
@@ -20,6 +21,7 @@ window.onload = function(){
     document.getElementById('btn-doWork').addEventListener("click", work)
     document.getElementById('btn-bank').addEventListener("click", bank)
     document.getElementById('btn-payLoan').addEventListener("click", payLoan)
+    document.getElementById('btn-payForComputer').addEventListener("click", payPC)
     document.getElementById('btn-payLoan').style.visibility = "hidden"
 
     //! CHANGEABLE TEXT ELEMENTS
@@ -45,7 +47,7 @@ const addLaptops = (laptops) => {
 
     pc_title.innerHTML       = laptops[0].title
     pc_description.innerHTML = laptops[0].description
-    pc_price.innerHTML       = laptops[0].price
+    pc_price.innerHTML       = "Price: " + laptops[0].price
 
 }
 
@@ -72,32 +74,21 @@ const laptopChange = x => {
         document.querySelector("#specs-list").appendChild(newElement)
     })
 
-    console.log(computer.title)
-    console.log(computer.description)
-
-    console.log(computer.id)
-    console.log(computer.image)
-
-    pc_image.src = "https://hickory-quilled-actress.glitch.me/" + computer.image
+    if (computer.id == 5)
+        pc_image.src = "https://hickory-quilled-actress.glitch.me/" + "assets/images/5.png"
+    else
+        pc_image.src = "https://hickory-quilled-actress.glitch.me/" + computer.image
     
     pc_title.innerHTML       = computer.title
     pc_description.innerHTML = computer.description
-    pc_price.innerHTML       = computer.price
-
+    pc_price.innerHTML       = "Price: " + computer.price
 
 };
 
 // ? GLOBAL VARIABLES
 let gotLoan = false
 let outstandingValueBoolean = false
-payLoan.disableButton = false
 // ???????????????
-
-//! Function for disabling a button
-const disableButton = (button) => {
-    console.log("va");
-      button.disabled = true;
-}
 
 // A template for creating a bank user. 
 function bankUser(Name, Surname, Balance, Salary, SalaryBalance, outLoan){
@@ -123,8 +114,6 @@ let GrayGandalf = new bankUser(
 //! getLoan function checks for the requirements provided by the assignment document
 function getLoan(){
     
-    console.log("Your Balance is: " + GrayGandalf.Balance)
-
     if (GrayGandalf.Balance == 0){
         alert("You lazy ass, go do some work... you're broke")
         return
@@ -213,3 +202,15 @@ function work(){
     .innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
 }
 
+function payPC(){
+
+    if (pc_price.innerHTML > GrayGandalf.Balance){
+        alert("You do not have enough money in the bank to pay for this PC, please obtain some more money")
+        return;
+    }
+    else
+        alert("Congratulations, you're now an owner of a new: " + pc_title.innerHTML)
+        GrayGandalf.Balance -= pc_price.innerHTML
+        document.getElementById('text-Balance')
+        .innerHTML = "Balance:   " + GrayGandalf.Balance
+}
