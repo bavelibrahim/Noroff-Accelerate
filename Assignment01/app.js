@@ -1,3 +1,4 @@
+//! Initiliazing some of the variables here, because it created issues for me down below in window.onLoad
 const select_computers = document.getElementById("laptops")
 const specs_list = document.getElementById("specs-list")
 pc_description = document.getElementById("text-pc-paragraph")
@@ -13,7 +14,7 @@ let specs = []
 window.onload = function(){
 
     document.getElementById('laptops').addEventListener("change", laptopChange)
-    //! FIXED TEXT ELEMENTSS
+    //! Name of the preinitialized user
     document.getElementById('Gandalf').innerHTML = GrayGandalf.Name + " " + GrayGandalf.Surname
 
     //! BUTTONS
@@ -29,12 +30,13 @@ window.onload = function(){
     document.getElementById('text-Balance').innerHTML = "Balance:   " + GrayGandalf.Balance
 }
 
+//! Getting the information from the API
 fetch("https://hickory-quilled-actress.glitch.me/computers")
     .then(response => response.json())
     .then(data => laptops = data)
     .then(laptops => addLaptops(laptops))
 
-
+//! initializing the elements for the selectbox, title, pc description and 
 const addLaptops = (laptops) => {
     laptops.forEach(i => addLaptop(i))
 
@@ -50,7 +52,7 @@ const addLaptops = (laptops) => {
     pc_price.innerHTML       = laptops[0].price
 
 }
-
+//! This functions loops through addLaptops, executing this for each laptop
 const addLaptop = (laptop) => {
     //! ---------------
     const computers = document.createElement("option")
@@ -61,7 +63,8 @@ const addLaptop = (laptop) => {
     //! ---------------
     select_computers.appendChild(computers)
 }
-
+//! Whenever another computer is selected in the selectbox the information will change.
+//! This function executes this task.
 const laptopChange = x => {
     const computer = laptops[x.target.selectedIndex]
     
@@ -74,6 +77,9 @@ const laptopChange = x => {
         document.querySelector("#specs-list").appendChild(newElement)
     })
 
+    //! There was an issue regarding image number 5 where the file was originally a png, but it was
+    //! presented as a JPG in the API. The fix is done like this because the information is known
+    //! If it was a bigger generated list, this would've been done differently
     if (computer.id == 5)
         pc_image.src = "https://hickory-quilled-actress.glitch.me/" + "assets/images/5.png"
     else
@@ -85,14 +91,14 @@ const laptopChange = x => {
 
 };
 
-// ? GLOBAL VARIABLES
+// ? GLOBAL VARIABLES that are defined to check if a loan is active and another for the outstanding loan
 let gotLoan = false
 let outstandingValueBoolean = false
 // ???????????????
 
-// A template for creating a bank user. 
+//! A template for creating a bank user. 
 function bankUser(Name, Surname, Balance, Salary, SalaryBalance, outLoan){
-    // Properties of the Manager in his/her branch
+    //! Properties of the User in his/her branch
     this.Name               = Name
     this.Surname            = Surname
     this.Balance            = Balance
@@ -101,7 +107,7 @@ function bankUser(Name, Surname, Balance, Salary, SalaryBalance, outLoan){
     this.outLoan            = outLoan
 }
 
-// Creating Gandalf the Gray as a bank user. 
+//! Creating Gandalf the Gray as a bank user. I love LOTR, sorry...
 let GrayGandalf = new bankUser(
     "Gandalf",
     "The Brown",
@@ -111,7 +117,8 @@ let GrayGandalf = new bankUser(
     0
 )   
 
-//! getLoan function checks for the requirements provided by the assignment document
+//! The getLoan function obtains the loan for the user. 
+//! Some requirements were set when receiving the loan, these are set here.
 function getLoan(){
     
     if (GrayGandalf.Balance == 0){
@@ -149,7 +156,7 @@ function getLoan(){
     }
 }
 
-//! Paying back the loan
+//! This function will pay back the loan
 function payLoan () {
 
     if (GrayGandalf.SalaryBalance < GrayGandalf.outLoan){
@@ -201,7 +208,8 @@ function work(){
     document.getElementById('text-per-balance')
     .innerHTML = "Balance:   " + GrayGandalf.SalaryBalance
 }
-
+//! This functions executes whenever the pay button in the computer section is pressed. 
+//! It will check if the user have enough balance to buy the computer, otherwise it will cancel the payment. 
 function payPC(){
 
     if (pc_price.innerHTML > GrayGandalf.Balance){
