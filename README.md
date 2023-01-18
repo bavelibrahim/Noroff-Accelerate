@@ -5,9 +5,9 @@
 <p>Javascript (no framework), HTML, CSS</p>
 <h5 class="atx" id="table-of-contents">Table of contents:</h5>
 <ol>
-<li><p>[About the project](About the Project)</p>
+<li><p>About the Project</p>
 </li>
-<li><p>[Getting Started](Getting Started)</p>
+<li><p>Getting Started</p>
 <ol>
 <li><p>Prerequisites</p>
 </li>
@@ -15,9 +15,9 @@
 </li>
 </ol>
 </li>
-<li><p>[Built With](Built with)</p>
+<li><p>Built with</p>
 </li>
-<li><p><a href="Contact">Contact</a></p>
+<li><p>Contact</p>
 </li>
 </ol>
 <h2 class="atx" id="about-the-project">About the Project</h2>
