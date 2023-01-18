@@ -3,23 +3,6 @@
 <p>Below you will find more information about the project.</p>
 <h6 class="atx" id="languages-used">Languages used:</h6>
 <p>Javascript (no framework), HTML, CSS</p>
-<h5 class="atx" id="table-of-contents">Table of contents:</h5>
-<ol>
-<li><p>About the Project</p>
-</li>
-<li><p>Getting Started</p>
-<ol>
-<li><p>Prerequisites</p>
-</li>
-<li><p>Installation</p>
-</li>
-</ol>
-</li>
-<li><p>Built with</p>
-</li>
-<li><p>Contact</p>
-</li>
-</ol>
 <h2 class="atx" id="about-the-project">About the Project</h2>
 <p>This project resembles a simple computer store where a user which has been created beforehand, in this example - "Gandalf The Brown", will be able to work and save up some money to be able to buy a computer.</p>
 <p><img alt="" src="file:///C:/Users/PShwan/AppData/Roaming/marktext/images/2023-01-18-08-25-54-image.png?msec=1674026759687"></p>
