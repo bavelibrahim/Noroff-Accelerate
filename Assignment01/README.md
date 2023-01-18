@@ -11,13 +11,13 @@
 <p>The <strong>Repay Loan</strong> button will <u>only</u> be available once a loan is active. Once it is clicked, it will check the users personal balance (Not Bank Balance) to see if the value is enough to pay back the loan. If it is not it will ask the user to obtain more balance.</p>
 <img src="https://github.com/bavelibrahim/Noroff-Accelerate/blob/main/Assignment01/content/2023-01-18-11-44-45-image.png" ></img>
 <p>The third box from the left is the one representing a selection of computers with the specs below it. Whenever you select another computer, the specifications below it will also update.</p>
-<p><img alt="" src="file:///C:/Users/PShwan/AppData/Roaming/marktext/images/2023-01-18-13-18-19-image.png?msec=1674044302526"></p>
+<img src="https://github.com/bavelibrahim/Noroff-Accelerate/blob/main/Assignment01/content/2023-01-18-11-45-01-image.png"></img>
 <p>Below these boxes shown above we have the "Buying section", here the user will be able to buy a computer based on the selection from the previous box. Just like the specification list, the information below will also update when selection another computer.</p>
-<p><img alt="" src="file://C:%5CUsers%5CPShwan%5CAppData%5CRoaming%5Cmarktext%5Cimages%5C2023-01-18-13-17-34-image.png?msec=1674044254044"></p>
+<img src="https://github.com/bavelibrahim/Noroff-Accelerate/blob/main/Assignment01/content/2023-01-18-11-46-14-image.png"></img>
 <h2 class="atx" id="getting-started">Getting Started</h2>
 <h5 class="atx" id="prerequisites">Prerequisites</h5>
 <p>You need to have the .NET framework installed. This can be installed through Microsofts official website:</p>
-<p>[Download .NET Framework](<a href="https://dotnet.microsoft.com/en-us/download">Download .NET (Linux, macOS, and Windows)</a>)</p>
+<p>Download .NET Framework(<a href="https://dotnet.microsoft.com/en-us/download">Download .NET (Linux, macOS, and Windows)</a>)</p>
 <h5 class="atx" id="installation">Installation</h5>
 <p>You can test this web-application by cloning it or downloading the zip file. I recommend downloading the "Better Comments" extension if you use Visual Studio Code</p>
 <ol>
