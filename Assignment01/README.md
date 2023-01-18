@@ -5,7 +5,7 @@
 <p>Javascript (no framework), HTML, CSS</p>
 <h2 class="atx" id="about-the-project">About the Project</h2>
 <p>This project resembles a simple computer store where a user which has been created beforehand, in this example - "Gandalf The Brown", will be able to work and save up some money to be able to buy a computer.</p>
-<p><img width="200px" height="auto" alt="" src="file:///C:/Users/PShwan/AppData/Roaming/marktext/images/2023-01-18-08-25-54-image.png?msec=1674026759687"></p>
+<p><img alt="" src="file:///C:/Users/PShwan/AppData/Roaming/marktext/images/2023-01-18-08-25-54-image.png?msec=1674026759687" width="200px" height="auto"></p>
 <p>The Work button will give the user +100 balance each time it is clicked. The user will then be able to bank that balance. Whenever the user has banked a certain amount it will later be able to get a loan. However, the loan may not be higher than double the Bank Balance. Furthermore, the user may not get another loan until the previous one has been repaid, fully.</p>
 <p><img alt="" src="https://github.com/bavelibrahim/Noroff-Accelerate/blob/main/Assignment01/content/2023-01-18-08-25-54-image.png"><img alt="" src="file:///C:/Users/PShwan/AppData/Roaming/marktext/images/2023-01-18-11-46-14-image.png?msec=1674038776648"></p>
 <p>The <strong>Repay Loan</strong> button will <u>only</u> be available once a loan is active. Once it is clicked, it will check the users personal balance (Not Bank Balance) to see if the value is enough to pay back the loan. If it is not it will ask the user to obtain more balance.</p>
