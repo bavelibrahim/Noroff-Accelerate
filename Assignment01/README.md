@@ -17,7 +17,7 @@
 <h2 class="atx" id="getting-started">Getting Started</h2>
 <h5 class="atx" id="prerequisites">Prerequisites</h5>
 <p>You need to have the .NET framework installed. This can be installed through Microsofts official website:</p>
-<p>Download .NET Framework(<a href="https://dotnet.microsoft.com/en-us/download">Download .NET (Linux, macOS, and Windows)</a>)</p>
+<p>(<a href="https://dotnet.microsoft.com/en-us/download">Download .NET</a>)</p>
 <h5 class="atx" id="installation">Installation</h5>
 <p>You can test this web-application by cloning it or downloading the zip file. I recommend downloading the "Better Comments" extension if you use Visual Studio Code</p>
 <ol>
