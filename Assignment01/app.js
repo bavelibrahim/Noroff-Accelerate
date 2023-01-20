@@ -16,7 +16,7 @@ window.onload = function(){
     document.getElementById('laptops').addEventListener("change", laptopChange)
     //! Name of the preinitialized user
     document.getElementById('Gandalf').innerHTML = GrayGandalf.Name + " " + GrayGandalf.Surname
-
+    
     //! BUTTONS
     document.getElementById('btn-getLoan').addEventListener("click", getLoan)
     document.getElementById('btn-doWork').addEventListener("click", work)
